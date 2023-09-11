@@ -1,0 +1,819 @@
+:root {
+    --darkColor: #1d1d1d;
+    --bgColor: #252525;
+    --cardColor: #0e0e0e;
+}
+.switch-box {
+    position: fixed;
+    bottom: 15px;
+    right: 120px;
+    z-index: 9999;
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: transparent;
+        border: 1.5px solid var(--whiteColor);
+        transition: 0.4s;
+        &::before {
+            position: absolute;
+            content: "";
+            height: 25px;
+            width: 25px;
+            left: 0px;
+            bottom: 4px;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            transition: 0.4s;
+            box-shadow: 0 0px 15px #2020203d;
+            background: white url('../images/night.png');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        &.round {
+            border-radius: 34px;
+            &::before {
+                border-radius: 50%;
+            }
+        }
+    }
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 30px;
+        input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+    }
+    input:checked + .slider {
+        background-color: transparent;
+        border: 1.5px solid var(--mainColor);
+    }
+      
+    input:focus + .slider {
+        box-shadow: 0 0 1px var(--mainColor);
+    }
+      
+    input:checked + .slider:before {
+        transform: translateX(24px);
+        background: white url('../images/sunny.png');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+.theme-dark {
+    --titleColor: var(--whiteColor);
+    --bodyColor: var(--whiteColor);
+    .default-btn {
+        &.two {
+            color: var(--cardColor) !important;
+        }
+        &:hover {
+            color: var(--cardColor) !important;
+        }
+    }
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--whiteColor); 
+    }
+    h3 {
+        color: var(--whiteColor); 
+        a {
+            color: var(--whiteColor); 
+            transition: 0.7s;
+        }
+    }
+    p {
+        color: var(--whiteColor); 
+    }
+    body {
+        background: var(--darkColor);
+        color: var(--whiteColor); 
+    }
+    .desktop-nav {
+        .navbar {
+            .navbar-brand {
+                .logo-two {
+                    display: inline-block;
+                }
+                .logo-one {
+                    display: none;
+                }
+            }
+            .navbar-nav  {
+                .nav-item {
+                    .dropdown-menu {
+                        background-color: var(--darkColor) !important;
+                        li {
+                            a {
+                                color: var(--whiteColor); 
+                                &.active {
+                                    color: var(--mainColor);
+                                }
+                                &:hover {
+                                    color: var(--mainColor);
+                                }
+                            }
+                        }
+                    }
+                }   
+            }
+        }
+    }
+    .navbar-area {
+        background-color: var(--bgColor);
+        &.is-sticky {
+            background-color: var(--bgColor) !important;
+            .desktop-nav {
+                background-color: var(--bgColor) !important;
+            }
+        }
+    }
+    .mobile-responsive-nav {
+        .mobile-responsive-menu {
+            &.mean-container {
+                .mean-nav {
+                    background-color: var(--bgColor);
+                    ul {
+                        li {
+                            a {
+                                color: var(--whiteColor);
+                                &.active {
+                                    color: var(--greenColor);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .logo {
+            .logo-two {
+                display: inline-block;
+            }
+            .logo-one {
+                display: none;
+            }
+        }
+    }
+    .banner-area, .banner-area-two, .inner-banner {
+        background-color: var(--cardColor);
+    }
+    .banner-img {
+        &::before {
+            background-color: var(--bgColor);
+            background-image: none;
+        }
+    }
+    .banner-form, .banner-form-two, .banner-form-three {
+        background-color: var(--bgColor);
+        .form-group {
+            .form-control {
+                background-color: var(--bgColor);
+                color: var(--whiteColor);
+            }
+        }
+        .submit-btn {
+            &:hover {
+                color: var(--cardColor);
+            }
+        }
+    }
+    .banner-area-three {
+        background-color: var(--cardColor);
+        &::before {
+            opacity: 0.1;
+        }
+    }
+    .browse-jobs-card, .find-jobs-card, .freelancers-card, .recent-job-item, .recent-job-card, .job-post-card {
+        background-color: var(--cardColor);
+        .bookmark-btn {
+            &:hover {
+                background-color: var(--bgColor);
+            }
+        }
+    }
+    .find-jobs-area, .company-area, .recent-job-area-two, .job-post-area {
+        background-color: var(--bgColor);
+    }
+    .job-post-form {
+        .form-group {
+            .form-control {
+                background-color: var(--cardColor);
+                color: var(--whiteColor);
+            }
+        }
+    }
+    .job-details-widget-side {
+        .job-details-widget {
+            background-color: var(--bgColor);
+            .job-details-social {
+                .social-icon {
+                    li {
+                        a {
+                            i {
+                                color: var(--cardColor);
+                            }
+                        }
+                    }
+                }
+            }
+            .job-details-web-btn {
+                a {
+                    background-color: var(--cardColor);
+                    color: var(--whiteColor);
+                    transition: 0.7s;
+                    &:hover {
+                        background-color: var(--mainColor);
+                    }
+                }
+            }
+        }
+    }
+    .job-post-widget-area {
+        background-color: var(--bgColor);
+    }
+    .job-listing-top {
+        background-color: var(--bgColor);
+        .form-group {
+            .form-control {
+                background-color: var(--bgColor);
+                color: var(--whiteColor);
+            }
+        }
+        .submit-btn {
+            &:hover {
+                color: var(--cardColor);
+            }
+        }
+    }
+    .job-listing-topper  {
+        .job-listing-category {
+            .form-group {
+                .form-control {
+                    background-color: var(--bgColor);
+                    color: var(--whiteColor);
+                }
+            }
+        }
+    }
+    .job-listing-side-bar-content {
+        background-color: var(--bgColor);
+        .form-group {
+            .form-control {
+                background-color: var(--cardColor);
+                color: var(--whiteColor);
+            }
+        }
+    }
+    .job-listing-widget {
+        background-color: var(--bgColor);
+        .accordion-widget {
+            .accordion-widget-item {
+                background-color: var(--bgColor);
+            }
+        }
+    }
+    .job-details-content {
+        .article-social-icon {
+            background-color: var(--bgColor);
+            .social-icon {
+                li {
+                    a {
+                        i {
+                            color: var(--cardColor);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .job-details-widget-side {
+        .job-details-widget {
+            .job-details-widget-tag {
+                li {
+                    a {
+                        background-color: var(--cardColor);
+                        color: var(--whiteColor);
+                        transition: 0.7s;
+                        &:hover {
+                            background-color: var(--mainColor);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .job-details-content {
+        .job-details-play {
+            .play-btn {
+                i {
+                    &:hover {
+                        color: var(--cardColor);
+                    }
+                }
+            }
+        }
+    }
+    .post-job-form {
+        background-color: var(--bgColor);
+    }
+    .company-details-card, .counter-item {
+        background-color: var(--cardColor);
+    }
+    .company-details-content {
+        .article-social-icon {
+            background-color: var(--cardColor);
+            .social-icon {
+                li {
+                    a {
+                        i {
+                            color: var(--cardColor);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .employers-details-content {
+        .article-social-icon {
+            background-color: var(--bgColor);
+            .social-icon {
+                li {
+                    a {
+                        i {
+                            color: var(--cardColor);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .side-bar-widget-bg {
+        background-color: var(--bgColor);
+        .side-bar-widget-tag {
+            li {
+                a {
+                    background-color: var(--cardColor);
+                    color: var(--whiteColor);
+                    transition: 0.7s;
+                    &:hover {
+                        background-color: var(--mainColor);
+                    }
+                }
+            }
+        }
+    }
+    .blog-details-content {
+        .blockquote {
+            background-color: var(--bgColor);
+        }
+        .article-share-area {
+            background-color: var(--bgColor);
+            .social-icon {
+                li {
+                    a {
+                        i {
+                            color: var(--cardColor);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .side-bar-widget {
+        background-color: var(--bgColor);
+        .search-form {
+            .form-control {
+                background-color: var(--cardColor);
+            }
+        }
+        .side-bar-widget-tag {
+            li {
+                a {
+                    background-color: var(--cardColor);
+                    color: var(--whiteColor);
+                    transition: 0.7s;
+                    &:hover {
+                        background-color: var(--mainColor);
+                    }
+                }
+            }
+        }
+    }
+    .company-item, .company-card {
+        background-color: var(--cardColor);
+    }
+    .testimonials-widget-area {
+        background-color: var(--cardColor);
+    }
+    .testimonials-item {
+        background-color: var(--cardColor);
+    }
+    .recent-job-area {
+        background-color: var(--bgColor);
+    }
+    .pricing-wraps {
+        .pricing-table {
+            table {
+                tbody {
+                    tr {
+                        td {
+                            &.pricing-name-list2,  &.pricing-body-list2 {
+                                background-color: var(--bgColor);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .pricing-card {
+        background-color: var(--cardColor);
+    }
+    .faq-accordion {
+        .accordion {
+            .accordion-item {
+                background-color: var(--bgColor);
+            }
+            .accordion-title {
+                background-color: var(--bgColor);
+            }
+        }
+    }
+    .freelancer-details-profile {
+        background-color: var(--cardColor);
+    }
+    .candidates-details-content {
+        .candidates-skill {
+            .candidates-skill-tag {
+                li {
+                    a {
+                        background-color: var(--bgColor);
+                        color: var(--whiteColor);
+                        transition: 0.7s;
+                        &:hover {
+                            background-color: var(--mainColor);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .candidates-topper {
+        .candidates-category-form {
+            .form-group {
+                .form-control {
+                    background-color: var(--bgColor);
+                    color: var(--whiteColor);
+                }
+            }
+        }
+    }
+    .candidates-widget {
+        background-color: var(--bgColor);
+        .form-group {
+            .form-control {
+                background-color: var(--cardColor);
+                color: var(--whiteColor);
+            }
+        }
+    }
+    .candidates-details-right {
+        background-color: var(--bgColor);
+        .content-profile {
+            .social-icon {
+                li {
+                    a {
+                        i {
+                            color: var(--cardColor);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .content-widget-right {
+        background-color: var(--bgColor);
+        .download-btn {
+            color: var(--cardColor);
+        }
+    }
+    .other-candidates-list {
+        background-color: var(--bgColor);
+    }
+    .services-area {
+        background-color: var(--bgColor);
+    }
+    .services-card {
+        background-color: var(--cardColor);
+    }
+    .employers-cv-area {
+        &::before {
+            background-color: var(--darkColor);
+        }
+        &::after {
+            background-color: var(--cardColor);
+        }
+    }
+    .employers-cv-bg {
+        background-color: var(--bgColor);
+    }
+    .employers-cv-btn {
+        .employersButton-button {
+            color: var(--cardColor);
+        }
+    }
+    .footer-area {
+        background-color: var(--cardColor);
+    }
+    .footer-widget {
+        .footer-logo {
+            .footer-logo1 {
+                display: none;
+            }
+            .footer-logo2 {
+                display: inline-block;
+            }
+        }
+    }
+    .contact-form {
+        background-color: var(--bgColor);
+        .form-group {
+            .form-control {
+                background-color: var(--cardColor);
+                color: var(--whiteColor);
+            }
+        }
+    }
+    .user-all-form {
+        .contact-form {
+            .sub-title {
+                span {
+                    background-color: var(--bgColor);
+                }
+            }
+        }
+    }
+    .coming-soon-area {
+        .coming-soon-content {
+            .newsletter-form {
+                .input-newsletter {
+                    background-color: var(--bgColor);
+                    color: var(--whiteColor);
+                }
+            }
+        }
+    }
+    .go-top {
+        &:hover {
+            color: var(--cardColor);
+        }
+    }
+
+    /* Dashboard CSS */
+    .sidemenu-area {
+        background-color: var(--bgColor);
+        .sidemenu-header {
+            background-color: var(--bgColor);
+            .responsive-burger-menu {
+                cursor: pointer;
+                transition: var(--transition);
+            }
+            .navbar-brand {
+                .logo-two {
+                    display: inline-block;
+                }
+                .logo-one {
+                    display: none;
+                }
+            }
+        }
+        .sidemenu-body {
+            background-color: var(--darkColor);
+            .sidemenu-nav {
+                .nav-item {
+                    .nav-link {
+                        color: var(--whiteColor);
+                        &:hover {
+                            background-color: var(--mainColor);
+                            .icon {
+                                color: var(--whiteColor);
+                            }
+                        }
+                    }
+                    &.active {
+                        .nav-link {
+                            background-color: var(--mainColor);
+                            .icon {
+                                color: var(--whiteColor);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .main-dashboard-content {
+        background-color: var(--darkColor);
+        .navbar-area {
+            .desktop-nav {
+                background-color: var(--bgColor);
+                .navbar {
+                    .others-options {
+                        margin-left: auto;
+                        
+                        .profile-nav-item {
+                            &.dropdown {
+                                .dropdown-menu {
+                                   background-color: var(--cardColor);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .recent-notifications-box, .invoices-box {
+        background-color: var(--cardColor);
+        ul {
+            li {
+                &:hover {
+                    background-color: var(--bgColor);
+                }
+                .default-btn {
+                    background-color: var(--mainColor);
+                    &:hover {
+                        color: var(--cardColor) !important;
+                    }
+                }
+            }
+        }
+    }
+    .my-profile-box, .post-a-new-job-box, .submit-resumes-box {
+        background-color: var(--bgColor);
+        .form-group {
+            .form-control {
+                color: var(--whiteColor);
+                background-color: var(--cardColor);
+            }
+            .form-select {
+                color: var(--whiteColor);
+                background-color: var(--cardColor);
+            } 
+        }
+        .form-select {
+            background-color: var(--cardColor);
+            &:focus {
+                background-color: var(--cardColor);
+            }
+        }
+    }
+    .manage-jobs-box {
+        background-color: var(--bgColor);
+        .manage-jobs-table {
+            table {
+                thead {
+                    background-color: var(--cardColor);
+                }
+            }
+        }
+    }
+    .all-applicants-box, .packages-box{
+        background-color: var(--bgColor);
+    }
+    .chat-content-area {
+        .sidebar-left {
+            .sidebar {
+                background-color: var(--bgColor);
+            }
+        }
+        .content-right {
+            .chat-list-wrapper {
+                .chat-list {
+                    background-color: var(--cardColor);
+                    .chat-list-header {
+                        .header-right {
+                            ul {
+                                li {
+                                    .dropdown {
+                                        .dropdown-menu {
+                                            background-color: var(--bgColor);
+                                            .dropdown-item {
+                                                &:hover {
+                                                    background-color: var(--cardColor);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .chat-list-wrapper {
+            .chat-list {
+                background-color: var(--bgColor);
+                .chat-list-header {
+                    background-color: var(--cardColor);
+                }
+                .chat-container {
+                    background-color: var(--bgColor);
+                    .chat-content {
+                      
+                        .chat {
+                            
+                            &.chat-left {
+                                .chat-avatar {
+                                    float: left;
+                                }
+                                .chat-body {
+                                    .chat-message {
+                                       background-color: var(--darkColor);
+                                    }
+                                }
+                            }
+                        }
+                        .badge-light {
+                            padding: 8px 20px 8px;
+                            text-transform: uppercase;
+                            font-weight: 500;
+                            color: var(--mainColor);
+                            background-color: var(--whiteColor);
+                            border-radius: 30px;
+                        }
+                    }
+                }
+                .chat-list-footer {
+                   background-color: var(--cardColor);
+                    .file-attachment-btn {
+                        background-color: var(--bgColor);
+                        &:hover, &:focus {
+                            background-color: var(--mainColor);
+                            color: var(--whiteColor);
+                        }
+                    }
+                    form {
+                        .form-control {
+                            background-color: var(--bgColor);
+                            color: var(--titleColor);
+                            &:focus {
+                                border-color: var(--mainColor);
+                                box-shadow: 0 3px 8px 0 rgba(0, 0, 0, .1);
+                            }
+                        }
+                        .send-btn {
+                           background-color: var(--bgColor);
+
+                            i {
+                                position: relative;
+                                top: 2px;
+                            }
+                            &:hover {
+                                box-shadow: 0 4px 12px 0 rgba(8, 141, 211, .6);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .invoice-area {
+        background-color: var(--bgColor);
+    } 
+    .invoice-table {
+        table {
+            thead {
+                th {
+                    color: var(--whiteColor);
+                }
+            }
+        }
+    }
+    .resume-alerts-table {
+        background-color: var(--bgColor);
+    }
+    .change-password-box {
+        background-color: var(--bgColor);
+        .form-group {
+            .form-control {
+                color: var(--whiteColor);
+                background-color: var(--cardColor);
+            }
+        }
+    }
+
+  
+     
+   
+}
