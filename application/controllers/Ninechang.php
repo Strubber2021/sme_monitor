@@ -190,6 +190,7 @@ class Ninechang extends CI_Controller {
 			$dateStart = '01/01/2021';
 			$dateEnd = $days.'/'.$thismonth.'/'.$thisyear;
 			$data['thisyear'] = $dateStart.' - '.$dateEnd;
+			$data['label_thisweek'] = $this->label_thisweek();
 
 			if(!empty($this->input->post('company_id'))){
 				$data['company_id'] = $this->input->post('company_id');
