@@ -19,9 +19,9 @@
 
 		<!-- Daterangepicker -->
 		<!-- momment js is must -->
-		<script src='//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js'></script>
-		<script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js'></script>
-		<script src='//cdn.datatables.net/plug-ins/1.10.12/sorting/datetime-moment.js'></script>
+		<script src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js'></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js'></script>
+		<script src='https://cdn.datatables.net/plug-ins/1.10.12/sorting/datetime-moment.js'></script>
 
 		<script src="<?php echo base_url();?>assets/vendor/moment/moment.min.js"></script>
 		<script src="<?php echo base_url();?>assets/vendor/bootstrap-daterangepicker/daterangepicker.js"></script>
@@ -53,8 +53,8 @@
 		<!-- <script src="<?php echo base_url();?>assets/js/plugins-init/datatables.init.js"></script>  -->
 
 		<!-- partial -->
-		<script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js'></script>
-		<script src='//cdn.datatables.net/plug-ins/1.10.12/sorting/datetime-moment.js'></script>
+		<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js'></script>
+		<script src='https://cdn.datatables.net/plug-ins/1.10.12/sorting/datetime-moment.js'></script> -->
 
 		<script>
 			$(document).ready(function() {
