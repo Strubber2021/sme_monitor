@@ -473,7 +473,7 @@
 
 
                 <div class="col-xl-6">
-                  <div class="card" style="height: 420px;">
+                  <div class="card" style="height: 470px;">
                       <div class="card-header  border-0 pb-0">
                         <h4 class="card-title"><strong>5 บัญชี</strong> ที่เพิ่มเข้ามาใหม่ล่าสุด</h4>
                         <a href="<?php echo base_url('ninechang/company'); ?>"

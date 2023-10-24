@@ -236,7 +236,7 @@ class Bookkon extends CI_Controller {
 		$data['page_type'] = 'bookkon';
 		$data['page_name'] = 'bookkon_user';
 		$data['page_title'] = 'Program Monitor';
-		$data['chart'] = 'bookkon/js_chartist';
+		$data['chart'] = 'js';
 		$this->load->view('layouts/index',$data);
 
 		}else{
@@ -415,7 +415,7 @@ class Bookkon extends CI_Controller {
 		$data['page_type'] = 'bookkon';
 		$data['page_name'] = 'bookkon_review';
 		$data['page_title'] = 'Program Monitor';
-		$data['chart'] = 'bookkon/js_chartist';
+		$data['chart'] = 'js';
 		$this->load->view('layouts/index',$data);
 
 		}else{

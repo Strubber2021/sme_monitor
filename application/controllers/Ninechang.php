@@ -18,7 +18,6 @@ class Ninechang extends CI_Controller {
 		{
 			$thismonth = date('m');
 			$thisyear = date('Y');
-			// $yearstart = date('Y', strtotime('-1 years'));
 			$yearstart = '2021';
 			$data['yearNow'] = $thisyear = date('Y');
 
@@ -167,7 +166,7 @@ class Ninechang extends CI_Controller {
 			$data['page_type'] = 'ninechang';
 			$data['page_name'] = 'ninechang_company';
 			$data['page_title'] = 'Program Monitor';
-			$data['chart'] = 'ninechang/js_chartist';
+			$data['chart'] = 'js';
 			
 			$this->load->view('layouts/index',$data);
 
@@ -181,16 +180,29 @@ class Ninechang extends CI_Controller {
 		if($this->session->userdata('user_id') && $this->session->userdata('name'))
 		{
 			$data['list_company'] = $this->Ninechang_model->get_company();
+
 			$thismonth = date('m');
 			$thisyear = date('Y');
-			$yearstart = date('Y', strtotime('-1 years'));
+			$yearstart = '2021';
+			$data['yearNow'] = $thisyear = date('Y');
 
 			$days = cal_days_in_month(CAL_GREGORIAN, $thismonth, $thisyear);
-			// $dateStart = '01/01/'.$yearstart;
-			$dateStart = '01/01/2021';
+			$dateStart = '01/01/'.$yearstart;
 			$dateEnd = $days.'/'.$thismonth.'/'.$thisyear;
 			$data['thisyear'] = $dateStart.' - '.$dateEnd;
-			$data['label_thisweek'] = $this->label_thisweek();
+
+			if(!empty($this->input->post('daterange'))){
+				$date = $this->input->post('daterange');
+				$daterange = explode(" - ",$date);
+				$date1 = $daterange[0];
+				$date2 = $daterange[1];
+				$datestart = $this->transdate($date1);
+				$dateend = $this->transdate($date2);
+				$data['thisyear'] = $date1.' - '.$date2;
+			}else{
+				$datestart = $yearstart."-"."01-01";
+				$dateend = $thisyear."-".$thismonth."-".$days;
+			}
 
 			if(!empty($this->input->post('company_id'))){
 				$data['company_id'] = $this->input->post('company_id');
@@ -224,7 +236,7 @@ class Ninechang extends CI_Controller {
 			$data['page_type'] = 'ninechang';
 			$data['page_name'] = 'user';
 			$data['page_title'] = 'Program Monitor';
-			$data['chart'] = 'ninechang/js_chartist';
+			$data['chart'] = 'js';
 			
 			$this->load->view('layouts/index',$data);
 		
@@ -359,7 +371,7 @@ class Ninechang extends CI_Controller {
 		$data['page_type'] = 'ninechang';
 		$data['page_name'] = 'job';
 		$data['page_title'] = 'Program Monitor';
-		$data['chart'] = 'ninechang/js_chartist';
+		$data['chart'] = 'js';
 		
 		$this->load->view('layouts/index',$data);
 		}else{
@@ -393,7 +405,7 @@ class Ninechang extends CI_Controller {
 		$data['page_type'] = 'ninechang';
 		$data['page_name'] = 'parts';
 		$data['page_title'] = 'Program Monitor';
-		$data['chart'] = 'ninechang/js_chartist';
+		$data['chart'] = 'js';
 		
 		$this->load->view('layouts/index',$data);
 		}else{
@@ -425,7 +437,7 @@ class Ninechang extends CI_Controller {
 		$data['page_type'] = 'ninechang';
 		$data['page_name'] = 'equipment';
 		$data['page_title'] = 'Program Monitor';
-		$data['chart'] = 'ninechang/js_chartist';
+		$data['chart'] = 'js';
 		
 		$this->load->view('layouts/index',$data);
 		}else{
@@ -460,10 +472,6 @@ class Ninechang extends CI_Controller {
 			$date2 = $daterange[1];
 			$datestart = $this->transdate($date1);
 			$dateend = $this->transdate($date2);
-
-			// echo'<pre>';
-			// print_r($data['company_id']);
-			// exit;
 
 			if($data['company_id']['0'] == "ALL")
 			{
@@ -616,7 +624,7 @@ class Ninechang extends CI_Controller {
 		$data['page_type'] = 'ninechang';
 		$data['page_name'] = 'evaluate';
 		$data['page_title'] = 'Program Monitor';
-		$data['chart'] = 'ninechang/js_chartist';
+		$data['chart'] = 'js';
 		
 		$this->load->view('layouts/index',$data);
 		}else{
@@ -714,14 +722,6 @@ class Ninechang extends CI_Controller {
 	public function previous_week()
 	{
 		$previous_week = strtotime("-1 week +1 day");
-
-		// $monday = strtotime("-1 week 6 day",$previous_week);
-		// $tuesday = strtotime("-1 week 7 day",$previous_week);
-		// $wednesday = strtotime("-1 week 8 day",$previous_week);
-		// $thursday = strtotime("-1 week 9 day",$previous_week);
-		// $friday = strtotime("-1 week 10 day",$previous_week);
-		// $saturday = strtotime("-1 week 11 day",$previous_week);
-		// $sunday = strtotime("-1 week 12 day",$previous_week);
 		$monday = strtotime("-1 week 6 day",$previous_week);
 		$tuesday = strtotime("-1 week 7 day",$previous_week);
 		$wednesday = strtotime("-1 week 8 day",$previous_week);
@@ -744,14 +744,6 @@ class Ninechang extends CI_Controller {
 	public function label_previous_week()
 	{
 		$previous_week = strtotime("-1 week +1 day");
-
-		// $monday = strtotime("-1 week 4 day",$previous_week);
-		// $tuesday = strtotime("-1 week 5 day",$previous_week);
-		// $wednesday = strtotime("-1 week 6 day",$previous_week);
-		// $thursday = strtotime("-1 week 7 day",$previous_week);
-		// $friday = strtotime("-1 week 8 day",$previous_week);
-		// $saturday = strtotime("-1 week 9 day",$previous_week);
-		// $sunday = strtotime("-1 week 10 day",$previous_week);
 		$monday = strtotime("-1 week 6 day",$previous_week);
 		$tuesday = strtotime("-1 week 7 day",$previous_week);
 		$wednesday = strtotime("-1 week 8 day",$previous_week);
@@ -775,14 +767,6 @@ class Ninechang extends CI_Controller {
 	{
 		$previous_2week = strtotime("-2 week +1 day");
 		$previous_1week = strtotime("-1 week +1 day");
-
-		// $monday1 = strtotime("-1 week 4 day",$previous_1week);
-		// $tuesday1 = strtotime("-1 week 5 day",$previous_1week);
-		// $wednesday1 = strtotime("-1 week 6 day",$previous_1week);
-		// $thursday1 = strtotime("-1 week 7 day",$previous_1week);
-		// $friday1 = strtotime("-1 week 8 day",$previous_1week);
-		// $saturday1 = strtotime("-1 week 9 day",$previous_1week);
-		// $sunday1 = strtotime("-1 week 10 day",$previous_1week);
 		$monday1 = strtotime("-1 week 6 day",$previous_1week);
 		$tuesday1 = strtotime("-1 week 7 day",$previous_1week);
 		$wednesday1 = strtotime("-1 week 8 day",$previous_1week);
@@ -791,13 +775,6 @@ class Ninechang extends CI_Controller {
 		$saturday1 = strtotime("-1 week 11 day",$previous_1week);
 		$sunday1 = strtotime("-1 week 12 day",$previous_1week);
 
-		// $monday2 = strtotime("-1 week 4 day",$previous_2week);
-		// $tuesday2 = strtotime("-1 week 5 day",$previous_2week);
-		// $wednesday2 = strtotime("-1 week 6 day",$previous_2week);
-		// $thursday2 = strtotime("-1 week 7 day",$previous_2week);
-		// $friday2 = strtotime("-1 week 8 day",$previous_2week);
-		// $saturday2 = strtotime("-1 week 9 day",$previous_2week);
-		// $sunday2 = strtotime("-1 week 10 day",$previous_2week);
 		$monday2 = strtotime("-1 week 6 day",$previous_2week);
 		$tuesday2 = strtotime("-1 week 7 day",$previous_2week);
 		$wednesday2 = strtotime("-1 week 8 day",$previous_2week);
@@ -829,13 +806,6 @@ class Ninechang extends CI_Controller {
 		$previous_2week = strtotime("-2 week +1 day");
 		$previous_1week = strtotime("-1 week +1 day");
 
-		// $monday1 = strtotime("-1 week 4 day",$previous_1week);
-		// $tuesday1 = strtotime("-1 week 5 day",$previous_1week);
-		// $wednesday1 = strtotime("-1 week 6 day",$previous_1week);
-		// $thursday1 = strtotime("-1 week 7 day",$previous_1week);
-		// $friday1 = strtotime("-1 week 8 day",$previous_1week);
-		// $saturday1 = strtotime("-1 week 9 day",$previous_1week);
-		// $sunday1 = strtotime("-1 week 10 day",$previous_1week);
 		$monday1 = strtotime("-1 week 6 day",$previous_1week);
 		$tuesday1 = strtotime("-1 week 7 day",$previous_1week);
 		$wednesday1 = strtotime("-1 week 8 day",$previous_1week);
@@ -844,13 +814,6 @@ class Ninechang extends CI_Controller {
 		$saturday1 = strtotime("-1 week 11 day",$previous_1week);
 		$sunday1 = strtotime("-1 week 12 day",$previous_1week);
 
-		// $monday2 = strtotime("-1 week 4 day",$previous_2week);
-		// $tuesday2 = strtotime("-1 week 5 day",$previous_2week);
-		// $wednesday2 = strtotime("-1 week 6 day",$previous_2week);
-		// $thursday2 = strtotime("-1 week 7 day",$previous_2week);
-		// $friday2 = strtotime("-1 week 8 day",$previous_2week);
-		// $saturday2 = strtotime("-1 week 9 day",$previous_2week);
-		// $sunday2 = strtotime("-1 week 10 day",$previous_2week);
 		$monday2 = strtotime("-1 week 6 day",$previous_2week);
 		$tuesday2 = strtotime("-1 week 7 day",$previous_2week);
 		$wednesday2 = strtotime("-1 week 8 day",$previous_2week);

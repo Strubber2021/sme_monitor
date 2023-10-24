@@ -233,7 +233,7 @@ class Jobth extends CI_Controller {
 		$data['page_type'] = 'jobth';
 		$data['page_name'] = 'jobth_user';
 		$data['page_title'] = 'Program Monitor';
-		$data['chart'] = 'jobth/js_chartist';
+		$data['chart'] = 'js';
 		$this->load->view('layouts/index',$data);
 
 		}else{
@@ -365,7 +365,7 @@ class Jobth extends CI_Controller {
 		$data['page_type'] = 'jobth';
 		$data['page_name'] = 'jobth_job';
 		$data['page_title'] = 'Program Monitor';
-		$data['chart'] = 'jobth/js_chartist';
+		$data['chart'] = 'js';
 		$this->load->view('layouts/index',$data);
 
 		}else{
@@ -446,7 +446,7 @@ class Jobth extends CI_Controller {
 		$data['page_type'] = 'jobth';
 		$data['page_name'] = 'jobth_review';
 		$data['page_title'] = 'Program Monitor';
-		$data['chart'] = 'jobth/js_chartist';
+		$data['chart'] = 'js';
 		$this->load->view('layouts/index',$data);
 		}else{
 			redirect('login');

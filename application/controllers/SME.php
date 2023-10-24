@@ -48,7 +48,7 @@ class SME extends CI_Controller {
 		$data['page_type'] = 'sme';
 		$data['page_name'] = 'sme';
 		$data['page_title'] = 'Program Monitor';
-		$data['chart'] = 'board/js_chartist';
+		$data['chart'] = 'js';
 		
 		$this->load->view('layouts/index',$data);
 		}else{
