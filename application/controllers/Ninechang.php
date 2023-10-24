@@ -8,6 +8,7 @@ class Ninechang extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Ninechang_model');
 		$this->load->helper('url', 'form');
+		$this->load->library('form_validation');
 		$this->load->database();
 		$this->load->library('session');
 	}
@@ -233,10 +234,6 @@ class Ninechang extends CI_Controller {
 					}
 				}
 			}
-
-			
-			print_r($this->input->post('company_id'));
-				
 
 			$data['page_type'] = 'ninechang';
 			$data['page_name'] = 'user';
