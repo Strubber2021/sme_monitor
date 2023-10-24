@@ -238,12 +238,12 @@ class Ninechang extends CI_Controller {
 				print_r($date);
 				exit;
 			}
-			// $data['page_type'] = 'ninechang';
-			// $data['page_name'] = 'user';
-			// $data['page_title'] = 'Program Monitor';
-			// $data['chart'] = 'js';
+			$data['page_type'] = 'ninechang';
+			$data['page_name'] = 'user';
+			$data['page_title'] = 'Program Monitor';
+			$data['chart'] = 'js';
 			
-			// $this->load->view('layouts/index',$data);
+			$this->load->view('layouts/index',$data);
 		
 		}else{
 			redirect('login');
