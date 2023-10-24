@@ -235,7 +235,7 @@ class Ninechang extends CI_Controller {
 			}
 
 			
-			print_r($data['company_id']);
+			print_r($this->input->post('company_id'));
 				
 
 			$data['page_type'] = 'ninechang';

@@ -21,7 +21,7 @@
                             <div class="row">
                                 <div class="mb-3 col-md-4">
                                     <label class="form-label">องค์กร</label><span class="text-danger">*</span>
-                                    <select class="multi-select" id="company_id_require" name="company_id[]" multiple="multiple" required="required">
+                                    <select class="multi-select" id="company_id" name="company_id[]" multiple="multiple" required="required">
                                         <option value="ALL" selected>- เลือกทั้งหมด -</option>
                                         <?php foreach($list_company as $row){?>
                                             <option value="<?php echo $row['company_id']; ?>"><?php echo $row['company_name']; ?></option>
@@ -241,8 +241,8 @@
 
   <script>
       function search() {
-          var company_id_require = $('#company_id_require').val();
-          if(company_id_require == ""){
+          var company_id = $('#company_id').val();
+          if(company_id == ""){
           $("#result").text('กรุณาเลือกองค์กร');
               event.preventDefault();
               return false;
