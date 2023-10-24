@@ -232,17 +232,17 @@ class Ninechang extends CI_Controller {
 						$data['total_employee2'] = $data['total_employee2']+$value['total_employee2'];
 					}
 				}
+			}
 
-				echo '<pre>';
+			echo '<pre>';
 				print_r($data);
 				exit;
-			}
-			$data['page_type'] = 'ninechang';
-			$data['page_name'] = 'user';
-			$data['page_title'] = 'Program Monitor';
-			$data['chart'] = 'js';
+			// $data['page_type'] = 'ninechang';
+			// $data['page_name'] = 'user';
+			// $data['page_title'] = 'Program Monitor';
+			// $data['chart'] = 'js';
 			
-			$this->load->view('layouts/index',$data);
+			// $this->load->view('layouts/index',$data);
 		
 		}else{
 			redirect('login');
