@@ -233,6 +233,11 @@ class Ninechang extends CI_Controller {
 					}
 				}
 			}
+
+			
+			print_r($data['company_id']);
+				
+
 			$data['page_type'] = 'ninechang';
 			$data['page_name'] = 'user';
 			$data['page_title'] = 'Program Monitor';
