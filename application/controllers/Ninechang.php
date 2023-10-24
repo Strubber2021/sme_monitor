@@ -232,11 +232,6 @@ class Ninechang extends CI_Controller {
 						$data['total_employee2'] = $data['total_employee2']+$value['total_employee2'];
 					}
 				}
-
-				echo $data['company_id'];
-				echo '<pre>';
-				print_r($date);
-				exit;
 			}
 			$data['page_type'] = 'ninechang';
 			$data['page_name'] = 'user';
