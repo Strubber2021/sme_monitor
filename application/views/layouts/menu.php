@@ -56,7 +56,7 @@
 			</li>
 
 			<li>
-				<a href="https://spnmonitor.smethaidata.com/ninechang" class="ai-icon" aria-expanded="false">
+				<a href="https://spnmonitor.smethaidata.com" class="ai-icon" aria-expanded="false">
 					<i class="flaticon-381-settings-6"></i>
 					<span class="nav-text">จัดการเว็บไซต์</span>
 				</a>
