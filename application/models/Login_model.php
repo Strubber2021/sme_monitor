@@ -2,9 +2,11 @@
 
 class Login_model extends CI_Model{
 
+	public $db2;
 	function __construct()
 	{
 		parent::__construct();
+		$this->db2 = $this->load->database('database2',TRUE);
 	}
 
 	function LoginFunction(){
@@ -13,7 +15,7 @@ class Login_model extends CI_Model{
         $password = html_escape($this->input->post('password'));
 
         $data = array('username' => $username , 'password' => $password);
-        $query = $this->db->get_where('ST_MASTER..Login_smemonitor',$data);
+        $query = $this->db2->get_where('ST_MASTER..Login_smemonitor',$data);
 
         if($query->num_rows() > 0){
             $row = $query->row();
