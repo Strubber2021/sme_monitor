@@ -97,9 +97,9 @@ $db['mssql'] = array(
 
 $db['database2'] = array(
 	'dsn'	=> '',
-	'hostname' => '103.253.72.99',
-	'username' => 'sa',
-	'password' => 'Sm3Th@ipaSS!!',
+	'hostname' => '43.229.149.211',
+	'username' => 'spndb',
+	'password' => 'spnDB2020!',
 	'database' => 'ST_MASTER',
 	'dbdriver' => 'sqlsrv',
 	'dbprefix' => '',
